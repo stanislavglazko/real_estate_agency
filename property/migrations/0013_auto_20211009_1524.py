@@ -13,8 +13,6 @@ def normalize_phonenumbers(apps, schema_editor):
         if phonenumbers.is_valid_number(owner_pure_phone):
             flat.owner_pure_phone = owner_pure_phone
             flat.save()
-        else:
-            continue
 
 
 class Migration(migrations.Migration):
