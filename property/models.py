@@ -5,7 +5,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Flat(models.Model):
-    new_building = models.NullBooleanField(default=None)
+    new_building = models.NullBooleanField(default=None, db_index=True)
     created_at = models.DateTimeField(
         'Когда создано объявление',
         default=timezone.now,
@@ -29,7 +29,8 @@ class Flat(models.Model):
     floor = models.CharField(
         'Этаж',
         max_length=3,
-        help_text='Первый этаж, последний этаж, пятый этаж')
+        help_text='Первый этаж, последний этаж, пятый этаж',
+        db_index=True)
 
     rooms_number = models.IntegerField(
         'Количество комнат в квартире',
